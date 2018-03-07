@@ -78,29 +78,21 @@ public class LinkedList {
 	}
 
    public void remove(int index) {
-	   if(head==null) {
-		   System.out.println("Empty list");
+	   Node pre = null;
+	   Node curr = head;
+	   if(head == null){
+		   return;
 	   }
-	   else if (index == 0) {
+	   if(index==0){
 		   head = head.next;
 	   }
-	   else {
-		   Node temp = head;
-		   Node temp2 = head.next;
-		  
-		   for(int i=0;i<index-1;i++) {
-			   if(temp2.next ==null) {
-				   System.out.println("List too short");
-			   }
-			   else {
-				   temp = temp.next;
-				   temp2 = temp2.next;
-			   }
-		   }
-		   
-		   temp.next = temp2.next;
-		   size--;
+	   while(index >0){
+		   pre = curr;
+		   curr = curr.next;
+		   index--;
 	   }
+	   pre.next = curr.next;
+	   size--;
    }
     
    @Override
@@ -169,6 +161,28 @@ public class LinkedList {
     	else {
     		return checkNodeUsingRecursion(node.next, data);
     	} 
+    	
+    }
+
+    public Node getMiddleNode(){
+    	Node temp1 = head;
+		Node temp2 = head;
+    	
+    		while(temp1.next!=null && temp1.next.next !=null){
+    			temp1 = temp1.next.next;
+    			temp2 = temp2.next;	
+    	}
+    	return temp2;
+    }
+    
+    public void reverseUsingRecursion(Node pre, Node curr){
+    	if(curr==null){
+    		head = pre;
+    	}
+    	else{
+    		reverseUsingRecursion(curr, curr.next);
+    		curr.next = pre;
+    	}
     	
     }
 }

@@ -16,9 +16,15 @@ public class Driver1 {
 		
 		list.add(50);
 		
+		list.add(60);
+		
+		list.add(70);
+		
 		list.display();
 		
 		System.out.println("Size: "+list.size());
+		
+		System.out.println("Removing element- ");
 		
 		list.remove(1);
 		
@@ -41,5 +47,15 @@ public class Driver1 {
 		System.out.println(list.get(0));
 		
 		System.out.println("Is node 50 present? -"+ list.checkNodeUsingRecursion(list.get(0), 50));
+		
+		System.out.println(list.getMiddleNode());
+		
+		System.out.println("Reversing List- ");
+		
+		list.reverseUsingRecursion(null, list.get(0));
+		
+		list.display();
+		
+		
 	}
 }
