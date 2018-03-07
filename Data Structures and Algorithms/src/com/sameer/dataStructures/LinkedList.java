@@ -10,6 +10,11 @@ public class LinkedList {
 			this.data = data;
 			this.next = null;
 		}
+		
+		@Override
+		public String toString(){
+			return this.data.toString();
+		}
 	}
 	
 	private Integer size;
@@ -37,6 +42,22 @@ public class LinkedList {
 			 }
 			 System.out.println();
 		 }
+	}
+	
+	public Node get(int index){
+		if(index<0 || index >= size){
+			return null;
+		}
+		else {
+			Node temp = head;
+			for(int i=0;i<index;i++){
+				temp =temp.next;
+				
+			}
+			return temp;
+		}
+			
+	
 	}
 	
 	public void add(int data) {
@@ -138,4 +159,16 @@ public class LinkedList {
     	currY.next = temp;
     }
 
+    public boolean checkNodeUsingRecursion(Node node, int data){
+    	if(node == null){
+    		return false;
+    	}
+    	else if(node.data == data){
+    		return true;
+    	}
+    	else {
+    		return checkNodeUsingRecursion(node.next, data);
+    	} 
+    	
+    }
 }

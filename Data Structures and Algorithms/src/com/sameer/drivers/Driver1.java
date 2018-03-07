@@ -37,5 +37,9 @@ public class Driver1 {
 		list.swapNodesWithoutData(50, 40);
 		
 		list.display();
+		
+		System.out.println(list.get(0));
+		
+		System.out.println("Is node 50 present? -"+ list.checkNodeUsingRecursion(list.get(0), 50));
 	}
 }
