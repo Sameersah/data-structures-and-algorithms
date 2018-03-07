@@ -32,9 +32,10 @@ public class LinkedList {
 			 Node temp = head;
 			 
 			 while(temp != null) {
-				 System.out.println(temp.data);
+				 System.out.print(temp.data+" ");
 				 temp = temp.next;
 			 }
+			 System.out.println();
 		 }
 	}
 	
@@ -95,5 +96,46 @@ public class LinkedList {
 	   
 	   return list;
    }
+
+    public void swapNodesWithoutData(int data1, int data2){
+    	
+    	Node preX = null;
+    	Node currX = head;
+    	Node preY = null;
+    	Node currY = head;
+    	
+    	while(currX!=null && currX.data!= data1){
+    		preX= currX;
+    		currX = currX.next;
+    	}
+    	
+    	while(currY!=null && currY.data!= data2){
+    		preY = currY;
+    		currY = currY.next;
+    	}
+    	
+    	if(currX==null || currY==null){
+    		System.out.println("Nodes not found");
+    		return;
+    	}
+    	
+    	if(preX != null){
+    		preX.next = currY;
+    	}
+    	else{
+    		head = currY;
+    	}
+    	
+    	if(preY !=null){
+    		preY.next = currX;
+    	}
+    	else{
+    		head = currX;
+    	}
+    	
+    	Node temp = currX.next;
+    	currX.next = currY.next;
+    	currY.next = temp;
+    }
 
 }

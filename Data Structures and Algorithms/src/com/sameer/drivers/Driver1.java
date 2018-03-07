@@ -27,5 +27,15 @@ public class Driver1 {
 		list.display();
 		
 		System.out.println(list);
+		
+		System.out.println("Swapping 2 nodes without swaping data - ");
+		
+		list.swapNodesWithoutData(20, 50);
+		
+		list.display();
+		
+		list.swapNodesWithoutData(50, 40);
+		
+		list.display();
 	}
 }
