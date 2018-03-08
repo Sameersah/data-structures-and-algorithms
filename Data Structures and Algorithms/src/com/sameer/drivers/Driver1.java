@@ -56,6 +56,7 @@ public class Driver1 {
 		
 		list.display();
 		
+		System.out.println("is Cyclic: "+list.isCyclic());
 		
 	}
 }
