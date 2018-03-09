@@ -55,6 +55,7 @@ public class DoublyLinkedList {
     		return;
     	}
     	else if(head.data == data){
+    		head.next.pre = null;
     		head = head.next;
     	}
     	else{
@@ -68,26 +69,58 @@ public class DoublyLinkedList {
     	   }
     	   else{
     		   temp.pre.next = temp.next;
+    		   temp.next.pre = temp.pre;
     	   }
     		
     	}
     }
+
+    public void removeAtIndex(int index){
+    	 if(head==null || index<0){
+    		 return;
+    	 }
+    	 
+    	 Node temp = head;
+    	 if(index== 0){
+    		 head = temp.next;
+    		 
+    	 }
+
+    	 while(index>0){
+    		 temp = temp.next;
+    		 if(temp== null){
+    			 return;
+    		 }
+    		 index--;
+    	 }
+    	 if(temp.pre != null){
+    	 temp.pre.next = temp.next;
+    	 }
+    	 if(temp.next!= null){
+    		 temp.next.pre = temp.pre;
+    	 }
+    	 
+    	 
+    }
     
     public void reverseUsingIteration(){
-    	if(head == null){
-    		return;
-    	}
-    	else{
-    		Node temp = head;
-    		
-    		while(temp.next != null){
-    			Node temp2 = temp.next;
-    			temp.next = temp.pre;
-    			temp.pre = temp2;	
-    			temp = temp.pre;
+       
+    		if(head ==null || head.next ==null){
+    			return;
     		}
-    		
-    		head = temp;
+    		else{
+    			Node temp = head;
+    			Node temp2 = null;
+    			while(temp.next != null){
+    				temp2 = temp.next;
+        			temp.next = temp.pre;
+        			temp.pre = temp2;
+        			temp = temp2;
+    			}
+    			temp.next = temp.pre;
+    			temp.pre = null;
+    			head = temp;
+    		}
     	}
-    }
+    
 }
