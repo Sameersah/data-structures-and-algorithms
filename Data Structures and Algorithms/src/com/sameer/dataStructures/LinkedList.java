@@ -2,7 +2,7 @@ package com.sameer.dataStructures;
 
 public class LinkedList {
 
-	private class Node  {
+	class Node  {
 		Integer data;
 		Node next;
 		
