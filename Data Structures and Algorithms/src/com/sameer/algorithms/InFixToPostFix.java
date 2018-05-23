@@ -17,6 +17,7 @@ public class InFixToPostFix {
 		operatorMap.put("*", 2);
 		operatorMap.put("/", 3);
 		operatorMap.put("(", 4);
+		operatorMap.put(")", 5);
 		
 	}
 	public String convert(String inFix) {
@@ -26,13 +27,16 @@ public class InFixToPostFix {
 		
 		for(int i=0;i<inFix.length();i++) {
 			String literal = String.valueOf(inFix.charAt(i));
+		
 			if(!operatorMap.containsKey(literal)) {
+		
 				postFix += literal;
 			}
 			else {
-				
+		
 				if(stack.isEmpty()) {
 					stack.push(literal);
+					
 					
 				}
 				else {
@@ -41,24 +45,34 @@ public class InFixToPostFix {
 					
 					if(literal.equalsIgnoreCase(")")) {
 						
-						while(topLiteral.equalsIgnoreCase(String.valueOf('('))) {
+						while(!topLiteral.equalsIgnoreCase(String.valueOf('('))) {
 							if(stack.isEmpty()) {
 							
-								return "";
+								break;
 							}
 							postFix += stack.pop();
+							if(stack.isEmpty()) {
+								break;
+							}
 							topLiteral = stack.peek();	
-							
 						}
+						if(!stack.isEmpty()) {
+							stack.pop();
+						}
+						
 					}
 					else {
 						
-						while(operatorMap.get(topLiteral)>operatorMap.get(literal)) {
+						while(operatorMap.get(topLiteral)>operatorMap.get(literal) && !topLiteral.equalsIgnoreCase("(")) {
 						
 							postFix += stack.pop();
+							if(stack.isEmpty()) {
+								break;
+							}
 							topLiteral = stack.peek();
 						}
 							stack.push(literal);
+							
 						
 						
 					}
