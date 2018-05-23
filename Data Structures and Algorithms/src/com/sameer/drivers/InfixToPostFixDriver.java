@@ -1,5 +1,6 @@
 package com.sameer.drivers;
 
+import java.util.List;
 import java.util.Scanner;
 
 import com.sameer.algorithms.InFixToPostFix;
@@ -16,7 +17,7 @@ public class InfixToPostFixDriver {
 		sc.close();
 		
 		
-		String postfix = postFixConverter.convert(infix);
+		List<String> postfix = postFixConverter.convert(infix);
 		
 		System.out.println(postfix);
 		

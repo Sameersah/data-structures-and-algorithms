@@ -1,6 +1,8 @@
 package com.sameer.algorithms;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Stack;
 
@@ -20,17 +22,20 @@ public class InFixToPostFix {
 		operatorMap.put(")", 5);
 		
 	}
-	public String convert(String inFix) {
+	public List<String> convert(String inFix) {
 		
-		String postFix = "";
+		List<String> postFix = new ArrayList<>();
 		Stack<String> stack = new Stack<>();
 		
 		for(int i=0;i<inFix.length();i++) {
 			String literal = String.valueOf(inFix.charAt(i));
-		
+			while(!(operatorMap.containsKey(String.valueOf(inFix.charAt(i)))) &&(i+1<inFix.length()) && !(operatorMap.containsKey(String.valueOf(inFix.charAt(i+1))))){
+				literal = literal+String.valueOf(inFix.charAt(i+1));
+				i++;
+			}
 			if(!operatorMap.containsKey(literal)) {
 		
-				postFix += literal;
+				postFix.add(literal);
 			}
 			else {
 		
@@ -50,7 +55,7 @@ public class InFixToPostFix {
 							
 								break;
 							}
-							postFix += stack.pop();
+							postFix.add(stack.pop());
 							if(stack.isEmpty()) {
 								break;
 							}
@@ -65,7 +70,7 @@ public class InFixToPostFix {
 						
 						while(operatorMap.get(topLiteral)>operatorMap.get(literal) && !topLiteral.equalsIgnoreCase("(")) {
 						
-							postFix += stack.pop();
+							postFix.add(stack.pop());
 							if(stack.isEmpty()) {
 								break;
 							}
@@ -84,7 +89,7 @@ public class InFixToPostFix {
 		}
 		
 		while(!stack.isEmpty()) {
-			postFix += stack.pop();
+			postFix.add(stack.pop());
 		}
 		
 		return postFix;

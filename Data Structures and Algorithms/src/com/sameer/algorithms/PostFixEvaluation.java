@@ -18,12 +18,12 @@ public class PostFixEvaluation {
 		
 	}
 	
-	public String evaluate (String postFix) {
+	public String evaluate (List<String> postFix) {
 		String output ="";
 		Stack<String> stack = new Stack<>();
 		
-		for(int i=0;i<postFix.length();i++) {
-			String literal = String.valueOf(postFix.charAt(i));
+		for(int i=0;i<postFix.size();i++) {
+			String literal = postFix.get(i);
 			if(!operatorList.contains(literal)) {
 				stack.push(literal);
 			}
