@@ -1,5 +1,7 @@
 package com.sameer.dataStructures;
 
+import com.sameer.dataStructures.LinkedList.LinkedList;
+
 public class LinkedListStack {
 
 	private LinkedList list;
@@ -40,13 +42,13 @@ public class LinkedListStack {
 			return -1;
 		}
 		else {
-			return list.get(top).data;
+			return list.get(top).getData();
 		}
 	}
 	
 	public void display(){
 		for(int i=0;i<=top;i++) {
-			System.out.println(list.get(i).data);
+			System.out.println(list.get(i).getData());
 		}
 	}
 }

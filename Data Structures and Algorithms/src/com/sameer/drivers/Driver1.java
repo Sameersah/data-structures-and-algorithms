@@ -1,6 +1,6 @@
 package com.sameer.drivers;
 
-import com.sameer.dataStructures.LinkedList;
+import com.sameer.dataStructures.LinkedList.LinkedList;
 
 public class Driver1 {
 

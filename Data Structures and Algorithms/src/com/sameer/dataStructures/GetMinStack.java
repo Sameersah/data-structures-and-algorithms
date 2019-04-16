@@ -1,5 +1,7 @@
 package com.sameer.dataStructures;
 
+import com.sameer.dataStructures.LinkedList.LinkedList;
+
 public class GetMinStack {
 
 	private LinkedList list;
@@ -32,7 +34,7 @@ public class GetMinStack {
 			minListTop++;
 		}
 		else {
-		if(data <= minList.get(minListTop).data) {
+		if(data <= minList.get(minListTop).getData()) {
 			minList.add(data);
 		}
 		
@@ -45,7 +47,7 @@ public class GetMinStack {
 		if(data != -1) {
 			list.remove(top);
 			top --;
-			if(data == minList.get(minListTop).data) {
+			if(data == minList.get(minListTop).getData()) {
 				minList.remove(minListTop);
 				minListTop--;
 			}
@@ -59,7 +61,7 @@ public class GetMinStack {
 			return -1;
 		}
 		else {
-			return list.get(top).data;
+			return list.get(top).getData();
 		}
 	}
 	
@@ -69,7 +71,7 @@ public class GetMinStack {
 	    	return -1;
 	    }
 	    else {
-	    	return minList.get(minListTop).data;
+	    	return minList.get(minListTop).getData();
 	    }
 	}
 }
