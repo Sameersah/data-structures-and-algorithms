@@ -2,31 +2,26 @@ package com.sameer.Threads;
 
 public class Printer {
 
-    int num;
-    int monitor;
- public Printer(int num){
-    this.num = num;
-    monitor = 0;
-}
-    synchronized void print(String name, int num) {
-    if( monitor == num){
-       
-        try {
-            wait();
-        }catch(InterruptedException e){}
-        monitor =1;
-        System.out.println(name);
-         notifyAll();
-    }
-    if(monitor !=1 && monitor ==num){
-        try {
-            wait();
-        }catch(InterruptedException e){}
 
-        monitor = 0;
-        System.out.println(name);
-        notifyAll();
+    volatile int monitor;
+
+    synchronized void print(int n, int startValue) {
+
+        while (n < 100) {
+
+            while (monitor != startValue) {
+                try {
+                    wait();
+                } catch (InterruptedException e) {
+                    System.out.println("Interrupted exception caught");
+                }
+            }
+
+            monitor = (monitor + 1) % 3;
+            System.out.println("n: " + n);
+            n = n + 3;
+            notifyAll();
+        }
     }
 
-    }
 }
