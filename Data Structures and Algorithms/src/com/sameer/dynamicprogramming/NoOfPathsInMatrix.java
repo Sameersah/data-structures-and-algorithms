@@ -8,10 +8,10 @@ public class NoOfPathsInMatrix {
     static Integer solMatrix[][];
     public static void main(String args[]){
 
-        int rows = 2;
+        int rows = 3;
         int cols = 3;
 
-        solMatrix= new Integer[2][3];
+        solMatrix= new Integer[rows][cols];
         for(int i=0;i<solMatrix.length;i++)
         Arrays.fill(solMatrix[i],-1);
         System.out.println("No of ways to reach bottom right grid from top left grid is "+ getNoOfPaths(rows-1,cols-1));
