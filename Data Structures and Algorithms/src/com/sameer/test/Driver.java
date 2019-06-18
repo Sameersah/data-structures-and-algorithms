@@ -3,10 +3,10 @@ package com.sameer.test;
 public class Driver {
 
     public  static void main(String args[]) {
-        String string = "sameer";
-        String string2 = string + "sah";
+        String s = "12343434";
 
-        System.out.println(string==string2);
+        long num = s.codePoints().filter(i->i=='4').count();
+        System.out.println(num);
     }
 
 
