@@ -1,11 +1,8 @@
 package com.sameer.drivers;
 
-import com.sameer.dataStructures.BinarySearchTree.BinarySearchTree;
-import com.sameer.dataStructures.BinarySearchTree.BinarySearchTree.Node;
-
 public class BinarySearchTreeDriver {
 
-	public static void main(String args[]) {
+	/*public static void main(String args[]) {
 		
 		BinarySearchTree bst = new BinarySearchTree();
 		
@@ -66,5 +63,5 @@ public class BinarySearchTreeDriver {
 		Node node1 = bst.getLowestCommonParent(bst.getHead(), 9, 3);
 		System.out.println("LCA node: "+node1.getData());
 		
-	}
+	}*/
 }

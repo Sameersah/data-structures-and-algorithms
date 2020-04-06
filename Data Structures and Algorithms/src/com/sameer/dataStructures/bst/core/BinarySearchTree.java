@@ -1,43 +1,14 @@
-package com.sameer.dataStructures.BinarySearchTree;
+package com.sameer.dataStructures.bst.core;
 
 public class BinarySearchTree {
 
-	/**
-	 * Node class
-	 */
-	public class Node {
-		private int data;
-		Node left, right;
-
-		public Node(int data) {
-			this.setData(data);
-			left = null;
-			right = null;
-		}
-
-		public int getData() {
-			return data;
-		}
-
-		public void setData(int data) {
-			this.data = data;
-		}
-	}
 
 
-	/**
-	 * head
-	 */
-	private Node head;
+	private BSTNode head;
 
-	public Node getHead() {
+	public BSTNode getHead() {
 		return head;
 	}
-
-	public void setHead(Node head) {
-		this.head = head;
-	}
-
 
 	public BinarySearchTree() {
 		head = null;
@@ -45,47 +16,54 @@ public class BinarySearchTree {
 
 
 	/**
-	 * add node recursivly to binarySearch tree
-	 * @param head
+	 * add node in binarySearch tree
 	 * @param data
 	 * @return
 	 */
-	public Node addRecursively(Node head, int data) {
-		if (head == null) {
-			Node node = new Node(data);
-			head = node;
+	public boolean add (int data){
+		if(head == null){
+			head = new BSTNode(data);
+		} else if (data ==head.data){
+			return false;
+		} else if (data < head.data){
+			head.left = add(head.left,data);
+		} else {
+			head.right = add(head.right,data);
 		}
-
-		else if (data == head.getData()) {
-			return head;
-		}
-
-		else if (data < head.getData()) {
-			if (head.left == null) {
-				Node node = new Node(data);
-				head.left = node;
-			} else {
-				head.left = addRecursively(head.left, data);
-			}
-		}
-
-		else if (data > head.getData()) {
-			if (head.right == null) {
-				Node node = new Node(data);
-				head.right = node;
-			} else {
-				head.right = addRecursively(head.right, data);
-			}
-		}
-
-		return head;
+		return true;
 	}
+
+	/**
+	 * overloaded add method
+	 * @param node
+	 * @param data
+	 * @return
+	 */
+	private BSTNode add(BSTNode node, int data){
+		if(node == null){
+			node = new BSTNode(data);
+			return node;
+		} else if (data ==node.data){
+			return node;
+		} else if(data < node.data){
+			node.left =  add(node.left,data);
+		}else {
+			node.right = add(node.right,data);
+		}
+		return node;
+	}
+
+	@Override
+	public String toString(){
+		return Traverser.inorderTraversal(this).toString();
+	}
+
 
 
 	/**
 	 * In order traversal
 	 * @param head
-	 */
+	 *//*
 	public void inorderTraversal(Node head) {
 
 		if (head == null) {
@@ -104,12 +82,12 @@ public class BinarySearchTree {
 	}
 
 
-	/**
+	*//**
 	 * search for a node
 	 * @param head
 	 * @param data
 	 * @return
-	 */
+	 *//*
 	public Node search(Node head, int data) {
 		if (head == null) {
 			return head;
@@ -122,11 +100,11 @@ public class BinarySearchTree {
 		}
 	}
 
-	/**
+	*//**
 	 * get Min
 	 * @param head
 	 * @return
-	 */
+	 *//*
 	public Node getMin(Node head) {
 		if (head == null) {
 			return head;
@@ -137,11 +115,11 @@ public class BinarySearchTree {
 		return head;
 	}
 
-	/**
+	*//**
 	 * Get max
 	 * @param head
 	 * @return
-	 */
+	 *//*
 	public Node getMax(Node head) {
 		if (head == null) {
 			return head;
@@ -152,11 +130,11 @@ public class BinarySearchTree {
 		}
 	}
 
-	/**
+	*//**
 	 * Get Max
 	 * @param head
 	 * @return
-	 */
+	 *//*
 	public Node getMaxIteratively(Node head) {
 		if (head == null) {
 			return head;
@@ -169,12 +147,12 @@ public class BinarySearchTree {
 		}
 	}
 
-	/**
+	*//**
 	 * delete node
 	 * @param head
 	 * @param data
 	 * @return
-	 */
+	 *//*
 	public Node delete(Node head, int data) {
 		if (head == null) {
 			return head;
@@ -200,13 +178,13 @@ public class BinarySearchTree {
 	}
 
 
-	/**
+	*//**
 	 * getShortestDistance b/w
 	 * @param head
 	 * @param data1
 	 * @param data2
 	 * @return
-	 */
+	 *//*
 	public int getShortestDistanceBetweenNodes(Node head, int data1, int data2) {
 		if (head == null) {
 			return 0;
@@ -246,6 +224,6 @@ public class BinarySearchTree {
 		else { 
 			return head;
 		}
-	}
+	}*/
 
 }
