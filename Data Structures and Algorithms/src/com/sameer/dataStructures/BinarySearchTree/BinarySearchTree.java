@@ -2,6 +2,9 @@ package com.sameer.dataStructures.BinarySearchTree;
 
 public class BinarySearchTree {
 
+	/**
+	 * Node class
+	 */
 	public class Node {
 		private int data;
 		Node left, right;
@@ -21,6 +24,10 @@ public class BinarySearchTree {
 		}
 	}
 
+
+	/**
+	 * head
+	 */
 	private Node head;
 
 	public Node getHead() {
@@ -31,10 +38,18 @@ public class BinarySearchTree {
 		this.head = head;
 	}
 
+
 	public BinarySearchTree() {
 		head = null;
 	}
 
+
+	/**
+	 * add node recursivly to binarySearch tree
+	 * @param head
+	 * @param data
+	 * @return
+	 */
 	public Node addRecursively(Node head, int data) {
 		if (head == null) {
 			Node node = new Node(data);
@@ -66,6 +81,11 @@ public class BinarySearchTree {
 		return head;
 	}
 
+
+	/**
+	 * In order traversal
+	 * @param head
+	 */
 	public void inorderTraversal(Node head) {
 
 		if (head == null) {
@@ -83,6 +103,13 @@ public class BinarySearchTree {
 		}
 	}
 
+
+	/**
+	 * search for a node
+	 * @param head
+	 * @param data
+	 * @return
+	 */
 	public Node search(Node head, int data) {
 		if (head == null) {
 			return head;
@@ -95,6 +122,11 @@ public class BinarySearchTree {
 		}
 	}
 
+	/**
+	 * get Min
+	 * @param head
+	 * @return
+	 */
 	public Node getMin(Node head) {
 		if (head == null) {
 			return head;
@@ -105,6 +137,11 @@ public class BinarySearchTree {
 		return head;
 	}
 
+	/**
+	 * Get max
+	 * @param head
+	 * @return
+	 */
 	public Node getMax(Node head) {
 		if (head == null) {
 			return head;
@@ -115,6 +152,11 @@ public class BinarySearchTree {
 		}
 	}
 
+	/**
+	 * Get Max
+	 * @param head
+	 * @return
+	 */
 	public Node getMaxIteratively(Node head) {
 		if (head == null) {
 			return head;
@@ -127,6 +169,12 @@ public class BinarySearchTree {
 		}
 	}
 
+	/**
+	 * delete node
+	 * @param head
+	 * @param data
+	 * @return
+	 */
 	public Node delete(Node head, int data) {
 		if (head == null) {
 			return head;
@@ -151,6 +199,14 @@ public class BinarySearchTree {
 
 	}
 
+
+	/**
+	 * getShortestDistance b/w
+	 * @param head
+	 * @param data1
+	 * @param data2
+	 * @return
+	 */
 	public int getShortestDistanceBetweenNodes(Node head, int data1, int data2) {
 		if (head == null) {
 			return 0;
@@ -165,6 +221,7 @@ public class BinarySearchTree {
 			return dis1 + dis2;
 		}
 	}
+
 
 	private int getDistanceFromParentNode(Node head, int data) {
 		if (head == null) {

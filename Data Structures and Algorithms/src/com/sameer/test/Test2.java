@@ -5,7 +5,8 @@ import java.util.List;
 
 public class Test2 {
 
-	int a ;
-	char b;
-	Integer c;
+	public static void main(String args[]){
+		Test test = new Test();
+
+	}
 }
