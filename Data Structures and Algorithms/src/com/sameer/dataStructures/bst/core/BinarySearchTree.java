@@ -59,6 +59,23 @@ public class BinarySearchTree {
 	}
 
 
+	/**
+	 * Search
+	 */
+
+	public BSTNode search (int data){
+		BSTNode node = head;
+		while(node != null){
+			if (data == node.data) {
+				return node;
+			} else if (data < node.data) {
+				node = node.left;
+			} else {
+				node = node.right;
+			}
+		}
+		return null;
+	}
 
 	/**
 	 * In order traversal
