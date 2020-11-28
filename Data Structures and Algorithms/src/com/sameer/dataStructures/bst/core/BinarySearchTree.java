@@ -4,14 +4,14 @@ public class BinarySearchTree {
 
 
 
-	private BSTNode head;
+	public Node root;
 
-	public BSTNode getHead() {
-		return head;
+	public Node getRoot() {
+		return root;
 	}
 
 	public BinarySearchTree() {
-		head = null;
+		root = null;
 	}
 
 
@@ -21,14 +21,14 @@ public class BinarySearchTree {
 	 * @return
 	 */
 	public boolean add (int data){
-		if(head == null){
-			head = new BSTNode(data);
-		} else if (data ==head.data){
+		if(root == null){
+			root = new Node(data);
+		} else if (data == root.data){
 			return false;
-		} else if (data < head.data){
-			head.left = add(head.left,data);
+		} else if (data < root.data){
+			root.left = add(root.left,data);
 		} else {
-			head.right = add(head.right,data);
+			root.right = add(root.right,data);
 		}
 		return true;
 	}
@@ -39,9 +39,9 @@ public class BinarySearchTree {
 	 * @param data
 	 * @return
 	 */
-	private BSTNode add(BSTNode node, int data){
+	private Node add(Node node, int data){
 		if(node == null){
-			node = new BSTNode(data);
+			node = new Node(data);
 			return node;
 		} else if (data ==node.data){
 			return node;
@@ -63,8 +63,8 @@ public class BinarySearchTree {
 	 * Search
 	 */
 
-	public BSTNode search (int data){
-		BSTNode node = head;
+	public Node search (int data){
+		Node node = root;
 		while(node != null){
 			if (data == node.data) {
 				return node;

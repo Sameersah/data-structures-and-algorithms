@@ -1,10 +1,10 @@
 package com.sameer.dataStructures.bst.core;
 
-public class BSTNode {
-   int data;
-  BSTNode left, right;
+public class Node {
+  public int data;
+  public Node left, right;
 
-  public BSTNode(int data) {
+  public Node(int data) {
     this.setData(data);
     left = null;
     right = null;

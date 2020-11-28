@@ -6,10 +6,10 @@ import java.util.List;
 public class Traverser {
 
   public static List inorderTraversal(BinarySearchTree tree){
-    return inorderTraversal(tree.getHead(), new ArrayList());
+    return inorderTraversal(tree.getRoot(), new ArrayList());
   }
 
-  public static List inorderTraversal(BSTNode node, List list){
+  public static List inorderTraversal(Node node, List list){
     if(node == null){
       return list;
     }

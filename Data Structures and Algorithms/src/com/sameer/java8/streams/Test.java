@@ -1,9 +1,13 @@
 package com.sameer.java8.streams;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 
 public class Test {
@@ -41,6 +45,55 @@ public class Test {
 
      newList.stream().forEach(x-> System.out.println(x));
     });
+
+
+    System.out.println("---");
+
+    /**
+    * convert int[] into list using streams
+    * */
+
+    int arr[] = new int[6];
+    arr[0] = 1;
+    arr[1] = 10;
+    arr[2] = 15;
+    arr[3] = 15;
+    arr[4] = 1;
+    arr[5] = 1;
+
+
+
+    IntStream intStream = Arrays.stream(arr);
+    Stream<Integer> stream = intStream.boxed();
+
+    Map<Integer,Integer> map = stream.collect(Collectors.toMap(x -> x,x->1, (x1,x2)->x1+1));
+
+   int pairs =  map.values().stream().filter(x->x>1).map(x->((x*(x-1))/2)).reduce(Integer::sum).orElse(0);
+
+    System.out.println(pairs);
+
+    /**
+     * Int stream operations
+     */
+    System.out.println("----");
+    int extraCandies = 3;
+    int candies[] = new int[5];
+    candies[0] = 2;
+    candies[1] = 3;
+    candies[2] = 5;
+    candies[3] = 1;
+    candies[4] = 3;
+
+    int greatest = Arrays.stream(candies).max().getAsInt();
+    List<Boolean> output = Arrays.stream(candies).mapToObj(x -> {
+      if(x+extraCandies >= greatest) {
+        return true;
+      } else {
+        return false;
+      }
+    }).collect(Collectors.toList());
+
+    System.out.println(output);
 
 
 

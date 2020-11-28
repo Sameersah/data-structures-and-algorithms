@@ -1,6 +1,5 @@
 package com.sameer.dataStructures.bst.Driver;
 
-import com.sameer.dataStructures.bst.core.BSTNode;
 import com.sameer.dataStructures.bst.core.BinarySearchTree;
 
 import java.util.Optional;
@@ -21,6 +20,9 @@ public class Driver {
     //2. Search for a node
 
     Optional.ofNullable(bst.search(41)).ifPresent(bstNode -> System.out.println("found!: "+bstNode.getData()));
+
+
+    System.out.println("sameer".equalsIgnoreCase(null));
 
   }
 }
